@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from rest_framework import viewsets
+from .serializers import MasterSerializer
+from .models import Master
 
-# Create your views here.
+
+class MasterViewSet(viewsets.ModelViewSet):
+    queryset = Master.objects.all()
+    serializer_class = MasterSerializer
