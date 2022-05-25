@@ -19,14 +19,21 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from master.views import MasterViewSet
+from booking.views import ApartmentViewSet
+from erkindik.views import ArtViewSet
+from aviasatuu.views import FlightViewSet, PassengerViewSet
 from users import views as user_views
 
 
 router = routers.DefaultRouter()
 router.register(r'masters', MasterViewSet)
+router.register(r'booking/apartments', ApartmentViewSet)
+router.register(r'erkindik/arts', ArtViewSet)
+router.register(r'aviasatuu/passengers', PassengerViewSet)
+router.register(r'aviasatuu/flights', FlightViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api/user', user_views.user, name='user'),
     path('api/login', user_views.issue_token, name='issue_token'),

@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     
     'master',
     'service',
+    'aviasatuu',
+    'booking',
+    'erkindik',
 ]
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
