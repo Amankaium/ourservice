@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from master.views import MasterViewSet
+from users import views as user_views
 
 
 router = routers.DefaultRouter()
@@ -27,6 +28,8 @@ router.register(r'masters', MasterViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api/user', user_views.user, name='user'),
+    path('api/login', user_views.issue_token, name='issue_token'),
 ] 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

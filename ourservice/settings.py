@@ -39,10 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
     
     'master',
     'service',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
+
+CORS_ORIGIN_WHITELIST = ['http://localhost:8000']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
