@@ -4,6 +4,7 @@ from rest_framework import serializers
 
 class ApartmentSerializer(serializers.HyperlinkedModelSerializer):
     photo = serializers.ImageField(required=True)
+    flat = serializers.IntegerField(required=False)
 
     class Meta:
         model = Apartment
