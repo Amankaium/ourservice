@@ -11,6 +11,7 @@ class Flight(models.Model):
     aviacompany = models.CharField(max_length=255, null=True)
     price = models.PositiveIntegerField(default=0)
 
+
 class Passenger(models.Model):
     user = models.OneToOneField(to=User, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255)

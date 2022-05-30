@@ -20,4 +20,4 @@ class Apartment(models.Model):
     washmash = models.CharField(max_length=255, default='')
     conditioner = models.CharField(max_length=255, default='')
     medicine = models.CharField(max_length=255, default='')
-    # photo = models.CharField(max_length=255, default='')    
+    photo = models.ImageField(upload_to="apartments/", null=True)    
