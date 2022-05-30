@@ -9,7 +9,8 @@ class Flight(models.Model):
     start = models.DateTimeField()
     end = models.DateTimeField()
     aviacompany = models.CharField(max_length=255, null=True)
-    price = models.PositiveIntegerField(default=0)
+    price_for_child = models.PositiveIntegerField(default=0)
+    price_for_adult = models.PositiveIntegerField(default=0)
 
 class Passenger(models.Model):
     user = models.OneToOneField(to=User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -21,5 +22,6 @@ class Passenger(models.Model):
     date_birth = models.CharField(max_length=255)
     document_number = models.CharField(max_length=255)
     email = models.CharField(max_length=255, null=True, blank=True)
+    price = models.PositiveIntegerField(default=0)
 
     

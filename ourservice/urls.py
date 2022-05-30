@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from master.views import MasterViewSet
 from booking.views import ApartmentViewSet
-from erkindik.views import ArtViewSet
+from erkindik.views import ArtViewSet, ArtistViewSet
 from aviasatuu.views import FlightViewSet, PassengerViewSet
 from users import views as user_views
 
@@ -29,6 +29,7 @@ router = routers.DefaultRouter()
 router.register(r'masters', MasterViewSet)
 router.register(r'booking/apartments', ApartmentViewSet)
 router.register(r'erkindik/arts', ArtViewSet)
+router.register(r'erkindik/artists', ArtistViewSet)
 router.register(r'aviasatuu/passengers', PassengerViewSet)
 router.register(r'aviasatuu/flights', FlightViewSet)
 
@@ -37,6 +38,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user', user_views.user, name='user'),
     path('api/login', user_views.issue_token, name='issue_token'),
+    path('api/registration', user_views.UserRegistrationAPIView.as_view(), name='registration')
 ] 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

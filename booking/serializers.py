@@ -5,4 +5,4 @@ from rest_framework import serializers
 class ApartmentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Apartment
-        fields = "__all__"
+        fields = [field.name for field in Apartment._meta.get_fields()]

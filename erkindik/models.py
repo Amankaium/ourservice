@@ -8,6 +8,8 @@ class Artist(models.Model):
 
 
 class Art(models.Model):
+    name = models.CharField(max_length=255, null=True)
+    description = models.TextField(null=True, blank=True)
     artist = models.ForeignKey(to=Artist, on_delete=models.CASCADE)
     genre = models.CharField(max_length=255)
     year = models.IntegerField()
